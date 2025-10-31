@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import Toast from '../components/Toast';
 
 /**
  * AddTransaction Page Component (add.html equivalent)
+ * 
+ * Enhanced with:
+ * - Toast notifications for success/error feedback
+ * - Improved form validation with helpful error messages
+ * - Visual feedback on form submission
  * 
  * Provides a form interface for adding new transactions to the Gringotts ledger.
  * Supports both income (vault credits/deposits) and expenses (vault debits/withdrawals).
@@ -27,6 +33,7 @@ import Footer from '../components/Footer';
 const AddTransaction = ({ addTransaction }) => {
   // Navigate hook for programmatic navigation after form submission
   const navigate = useNavigate();
+  const [toast, setToast] = useState(null);
 
   // Form state management
   const [formData, setFormData] = useState({
@@ -63,7 +70,7 @@ const AddTransaction = ({ addTransaction }) => {
 
   /**
    * Handles form submission
-   * Validates input, creates transaction object, and redirects to ledger
+   * Validates input, creates transaction object, shows toast, and redirects to ledger
    * 
    * @param {Event} e - The form submit event
    */
@@ -77,7 +84,7 @@ const AddTransaction = ({ addTransaction }) => {
 
     // Validate inputs
     if (!desc || isNaN(amount) || amount <= 0) {
-      alert('Mischief not managed! Please provide a valid description and amount.');
+      setToast({ message: 'Mischief not managed! Please provide a valid description and amount.', type: 'error' });
       return;
     }
 
@@ -89,9 +96,14 @@ const AddTransaction = ({ addTransaction }) => {
       type,
     };
 
-    // Add transaction and redirect to ledger
+    // Add transaction and show success message
     addTransaction(transaction);
-    navigate('/'); // Redirect to main ledger page
+    setToast({ message: `Transaction added successfully! ${type === 'income' ? '💰' : '💸'}`, type: 'success' });
+    
+    // Redirect after short delay to show toast
+    setTimeout(() => {
+      navigate('/'); // Redirect to main ledger page
+    }, 1000);
   };
 
   return (
@@ -141,6 +153,15 @@ const AddTransaction = ({ addTransaction }) => {
 
       {/* Footer with themed message */}
       <Footer message="Mischief Managed. ✨" />
+
+      {/* Toast Notification */}
+      {toast && (
+        <Toast 
+          message={toast.message} 
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </>
   );
 };

@@ -283,3 +283,354 @@ footer {
     }
     #balance-value { font-size: 1.8rem; }
 }
+
+/* ===================================
+   ✨ MAGICAL ENHANCEMENTS
+   =================================== */
+
+/* Floating coin animation for loading states */
+.magical-loading {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.floating-coins {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.floating-coins .coin {
+    font-size: 2rem;
+    animation: float 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.floating-coins .coin:nth-child(1) { animation-delay: 0s; }
+.floating-coins .coin:nth-child(2) { animation-delay: 0.3s; }
+.floating-coins .coin:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.loading-text {
+    color: #e0e6eb;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Vault balance - removed emoji indicators */
+#balance-value {
+    position: relative;
+    display: inline-block;
+}
+
+/* Transaction items with hover enchantment */
+.transaction-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.transaction-item::before {
+    content: '✨';
+    position: absolute;
+    left: -30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.transaction-item:hover::before {
+    left: 10px;
+    opacity: 1;
+}
+
+.transaction-item:hover {
+    transform: translateX(10px) scale(1.02);
+}
+
+/* Transaction type badges */
+.transaction-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.transaction-badge.income {
+    background: rgba(130, 226, 124, 0.2);
+    color: #82e27c;
+    border: 1px solid #82e27c;
+}
+
+.transaction-badge.expense {
+    background: rgba(255, 123, 123, 0.2);
+    color: #ff7b7b;
+    border: 1px solid #ff7b7b;
+}
+
+/* Delete button with wand flourish */
+.transaction-item button {
+    position: relative;
+    overflow: hidden;
+}
+
+.transaction-item button::before {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.transaction-item button:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+}
+
+.transaction-item button:active {
+    animation: wandFlick 0.3s ease;
+}
+
+@keyframes wandFlick {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Form inputs with magical focus */
+input:focus, select:focus {
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Submit button with spell casting effect */
+button[type="submit"] {
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button[type="submit"]:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Empty state with goblin illustration */
+.empty-vault {
+    text-align: center;
+    padding: 3rem;
+    opacity: 0.7;
+}
+
+.empty-vault::before {
+    content: '🏛️';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+/* Vault statistics cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background: rgba(40, 50, 60, 0.4);
+    border: 1px solid rgba(177, 224, 240, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(177, 224, 240, 0.3);
+    border-color: #b1e0f0;
+}
+
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #b1e0f0;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(177, 224, 240, 0.5);
+}
+
+.stat-card .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Navigation active indicator with golden underline */
+.marauders-nav a {
+    position: relative;
+}
+
+.marauders-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #b1e0f0, transparent);
+    box-shadow: 0 0 10px rgba(177, 224, 240, 0.7);
+}
+
+/* Toast notifications for actions */
+.toast-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: rgba(10, 15, 20, 0.95);
+    border: 2px solid #b1e0f0;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    color: #e0e6eb;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(177, 224, 240, 0.3);
+    animation: slideInRight 0.5s ease, fadeOut 0.5s ease 2.5s forwards;
+    z-index: 1000;
+}
+
+.toast-notification.success::before {
+    content: '✅ ';
+}
+
+.toast-notification.error::before {
+    content: '❌ ';
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Coming soon features preview */
+.coming-soon-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.feature-preview {
+    background: rgba(40, 50, 60, 0.4);
+    border: 1px solid rgba(177, 224, 240, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-preview:hover {
+    transform: translateY(-5px);
+    border-color: #b1e0f0;
+    box-shadow: 0 10px 30px rgba(177, 224, 240, 0.3);
+}
+
+.feature-preview .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.feature-preview strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #b1e0f0;
+}
+
+.feature-preview p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin: 0.5rem 0 0 0;
+}
+
+/* Wizard animation for reports page */
+.wizard-animation {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Responsive adjustments for enhancements */
+@media (max-width: 768px) {
+    .floating-coins .coin {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .toast-notification {
+        right: 10px;
+        left: 10px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .coming-soon-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #balance-value.balance-positive::after,
+    #balance-value.balance-negative::after {
+        right: -25px;
+        font-size: 1.2rem;
+    }
+    
+    .wizard-animation {
+        font-size: 3rem;
+    }
+}

@@ -87,10 +87,14 @@ function App() {
           } 
         />
         
-        {/* Reports Page - Vault analytics (placeholder for now) */}
+        {/* Reports Page - Vault analytics with transaction data */}
         <Route 
           path="/reports" 
-          element={<Reports />} 
+          element={
+            <Reports 
+              transactions={transactions}
+            />
+          } 
         />
       </Routes>
     </Router>
