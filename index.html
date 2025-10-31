@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gringotts Ledger | Vault Overview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Text&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <nav class="marauders-nav">
+        <div class="nav-logo">Gringotts</div>
+        <ul>
+            <li><a href="index.html" class="active">📜 Ledger</a></li>
+            <li><a href="add.html">💰 Add Transaction</a></li>
+            <li><a href="reports.html">📈 Reports</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="balance" class="glass-card fade-in">
+            <h2>🏦 Current Vault Balance</h2>
+            <p id="balance-value">0 Galleons</p>
+        </section>
+
+        <section id="transactions" class="glass-card fade-in" style="animation-delay: 0.2s;">
+            <h2>📜 Transaction History</h2>
+            <ul id="transaction-list"></ul>
+        </section>
+    </main>
+
+    <footer><p>I solemnly swear that I am up to no good. 👣</p></footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
