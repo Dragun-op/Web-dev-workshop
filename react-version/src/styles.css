@@ -1,0 +1,285 @@
+/* - PoA Theme: Base & Background - */
+body {
+    font-family: "Crimson Text", serif;
+    background-color: #0b1119; /* A very dark blue-grey from the image shadows */
+    background-image: url('./assets/bgimg.jpg');
+    background-size: cover;
+    background-position: center center; /* Center the image */
+    background-attachment: fixed; /* Keeps background fixed on scroll */
+    color: #e0e6eb; /* Light, slightly desaturated text for contrast */
+    margin: 0;
+    padding-top: 80px; /* Space for the fixed navbar */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* - Marauder's Map Navigation - */
+.marauders-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(10, 15, 20, 0.7); /* Darker, more transparent background */
+    backdrop-filter: blur(8px); /* Slightly less blur to integrate more */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    width: 90%; /* Adjusted for padding */
+    left: 0; right: 0; /* Ensures it spans full width despite padding */
+    margin: 0 auto;
+    z-index: 100;
+}
+
+.nav-logo {
+    font-family: "Cinzel Decorative", cursive;
+    font-size: 1.6rem; /* Slightly larger logo */
+    color: #b1e0f0; /* Soft, eerie blue for logo - like moonlight */
+    text-shadow: 0 0 5px rgba(177, 224, 240, 0.5); /* Subtle glow */
+}
+
+.marauders-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.marauders-nav a {
+    color: #e0e6eb; /* Lighter text for navigation */
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    padding: 5px 0; /* Add padding for better hit area */
+}
+
+.marauders-nav a:hover,
+.marauders-nav a.active {
+    color: #b1e0f0; /* Eerie blue on hover/active */
+    text-shadow: 0 0 8px rgba(177, 224, 240, 0.7); /* More pronounced glow */
+}
+
+/* - Glassmorphism Cards - */
+.glass-card {
+    background: rgba(10, 15, 20, 0.6); /* More transparent, blending with dark background */
+    backdrop-filter: blur(6px); /* Adjusted blur for subtlety */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Thinner, lighter border */
+    border-radius: 18px; /* Slightly more rounded */
+    padding: 35px; /* Slightly more padding */
+    margin: 25px auto; /* Adjusted margin */
+    width: 90%;
+    max-width: 850px; /* Slightly wider max-width */
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.45); /* Stronger, darker shadow */
+}
+
+/* - Fade In Animation (unchanged) - */
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* - Typography & Headings - */
+h2 {
+    color: #b1e0f0; /* Eerie blue for headings */
+    font-family: "Cinzel Decorative", cursive;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(177, 224, 240, 0.2); /* Subtle blueish border */
+    padding-bottom: 12px; /* Slightly more padding */
+    text-shadow: 0 0 4px rgba(177, 224, 240, 0.3); /* Soft glow */
+}
+
+/* - Form Styling - */
+#transaction-form {
+    display: grid;
+    gap: 18px; /* Slightly more gap */
+}
+
+input, select, button {
+    padding: 14px; /* More padding for inputs */
+    border-radius: 10px; /* More rounded inputs */
+    border: 1px solid rgba(177, 224, 240, 0.2); /* Subtle border */
+    font-size: 1.05rem; /* Slightly larger text in inputs */
+    font-family: "Crimson Text", serif;
+    background-color: rgba(10, 15, 20, 0.8); /* Darker, slightly transparent input background */
+    color: #e0e6eb;
+}
+
+input::placeholder {
+    color: rgba(224, 230, 235, 0.6); /* Lighter placeholder text */
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #b1e0f0; /* Eerie blue focus */
+    box-shadow: 0 0 12px rgba(177, 224, 240, 0.4); /* Stronger focus glow */
+}
+
+button[type="submit"] {
+    background-color: #b1e0f0; /* Eerie blue button */
+    color: #0b1119; /* Dark text on button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none; /* No border for submit button */
+    text-shadow: none; /* Remove text shadow for better contrast */
+}
+
+button[type="submit"]:hover {
+    background-color: #e0e6eb; /* Lighter on hover */
+    box-shadow: 0 0 20px rgba(177, 224, 240, 0.6); /* More pronounced glow */
+    transform: translateY(-2px) scale(1.01); /* Subtle lift and scale */
+}
+
+/* - Transaction List Items - */
+#transaction-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px; /* More space */
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px; /* More padding */
+    margin-bottom: 12px; /* More margin */
+    border-radius: 10px;
+    background-color: rgba(40, 50, 60, 0.4); /* Darker, more transparent item background */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.transaction-item:hover {
+    background-color: rgba(60, 75, 90, 0.5); /* Slightly lighter on hover */
+    box-shadow: 0 0 15px rgba(177, 224, 240, 0.2); /* Subtle glow on hover */
+}
+
+.transaction-item.income { border-left: 5px solid #82e27c; } /* Brighter green for income */
+.transaction-item.expense { border-left: 5px solid #ff7b7b; } /* Softer red for expense */
+
+.transaction-item span:first-child {
+    font-weight: 600; /* Slightly bolder */
+    flex-grow: 1;
+    margin-right: 15px; /* More spacing */
+}
+
+.transaction-item span:nth-child(2) {
+    font-size: 1.1rem; /* Slightly larger amount text */
+}
+
+/* 🪄 Expelliarmus (remove) button styling */
+.transaction-item button {
+    background: transparent;
+    border: 1px solid rgba(255, 123, 123, 0.6); /* Softer red border */
+    color: #ff7b7b; /* Softer red text */
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    margin-left: 15px; /* More space from amount */
+}
+
+.transaction-item button:hover {
+    background: #ff7b7b;
+    color: #0b1119;
+    box-shadow: 0 0 10px rgba(255, 123, 123, 0.7); /* Red glow */
+}
+
+/* - Balance Display - */
+#balance-value {
+    font-size: 2.8rem; /* Slightly larger balance text */
+    font-weight: bold;
+    text-align: center;
+    color: #b1e0f0; /* Eerie blue for balance */
+    text-shadow: 0 0 15px rgba(177, 224, 240, 0.7); /* Stronger glow for balance */
+    margin-top: 20px;
+}
+
+/* <footer> styling */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px; /* More margin */
+    color: rgba(224, 230, 235, 0.6); /* Lighter, more transparent footer text */
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* 📱 Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body { padding-top: 100px; }
+    .marauders-nav {
+        padding: 10px 2%; /* Adjusted padding */
+    }
+    .nav-logo { font-size: 1.4rem; }
+    .marauders-nav ul {
+        gap: 20px;
+    }
+    .marauders-nav a {
+        font-size: 1rem;
+    }
+    .glass-card {
+        padding: 25px;
+        margin: 15px auto;
+    }
+    h2 { font-size: 1.8rem; }
+    input, select, button { padding: 10px; font-size: 0.95rem; }
+    #balance-value { font-size: 2.2rem; }
+}
+
+@media (max-width: 480px) {
+    body { padding-top: 130px; } /* More space for wrapped nav */
+    .marauders-nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5%;
+        gap: 10px;
+    }
+    .marauders-nav ul {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .marauders-nav li {
+        width: 100%;
+    }
+    .marauders-nav a {
+        display: block;
+        padding: 8px 0;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.05); /* Slightly visible background for mobile nav items */
+    }
+    .marauders-nav a:hover,
+    .marauders-nav a.active {
+        background: rgba(177, 224, 240, 0.1);
+    }
+    .glass-card {
+        padding: 20px;
+        margin: 10px auto;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .transaction-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px;
+    }
+    .transaction-item span:first-child { margin-right: 0; }
+    .transaction-item span:nth-child(2) { margin: 0; }
+    .transaction-item button {
+        align-self: flex-end; /* Move button to the right */
+        margin-left: 0;
+    }
+    #balance-value { font-size: 1.8rem; }
+}
